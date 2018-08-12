@@ -1,0 +1,21 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{8B3D5357-44E6-4DC4-A5F2-6ACB65558EC8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitRecognizer", "DigitRecognizer\DigitRecognizer.csproj", "{089EC498-4E79-411F-B888-3FE8C56D52E1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{089EC498-4E79-411F-B888-3FE8C56D52E1} = {8B3D5357-44E6-4DC4-A5F2-6ACB65558EC8}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{089EC498-4E79-411F-B888-3FE8C56D52E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{089EC498-4E79-411F-B888-3FE8C56D52E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{089EC498-4E79-411F-B888-3FE8C56D52E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{089EC498-4E79-411F-B888-3FE8C56D52E1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
