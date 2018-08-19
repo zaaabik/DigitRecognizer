@@ -21,3 +21,9 @@ Thumbs.db
 obj/
 [Rr]elease*/
 _ReSharper*/
+/DigitRecognizer/dist
+/DigitRecognizer/node_modules
+bin/
+/DigitRecognizer/wwwroot/dist/
+/.vs/
+*.png

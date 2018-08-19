@@ -1,4 +1,6 @@
 ﻿using System;
+using DigitRecognizer.Services.Implementation;
+using DigitRecognizer.Services.Interface;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -18,7 +20,8 @@ namespace DigitRecognizer {
         public void ConfigureServices(IServiceCollection services) {
             services.AddMvc();
             services.AddCors(co =>
-                co.AddPolicy("AllowAll", cp => cp.AllowAnyOrigin().WithMethods("GET").AllowAnyHeader()));
+                co.AddPolicy("AccessControlAllowOrigin", cp => cp.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader()));
+            services.AddSingleton<INeuralService, NeuralService>();
         }
         
         public void Configure(IApplicationBuilder app, IServiceProvider serviceProvider) {
