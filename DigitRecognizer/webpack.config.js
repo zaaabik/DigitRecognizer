@@ -48,7 +48,7 @@ module.exports =
         output: {
             path: path.resolve(__dirname, 'wwwroot/dist'),
             filename: '[name].js',
-            publicPath: '/dist/'
+            publicPath: '/dist'
         },
         resolve: {
             extensions: ['.js', '.vue', '.json'],
