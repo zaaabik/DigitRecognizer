@@ -18,7 +18,7 @@ namespace DigitRecognizer.Services.Implementation {
                 bytes.Headers.ContentType = MediaTypeHeaderValue.Parse("image/png");
                 var requestContent = new MultipartFormDataContent();
                 requestContent.Add(bytes, "image", "image.png");
-                var url = "http://localhost:1234/neural/predict";
+                var url = "http://http://46.101.173.68::1234/neural/predict";
                 var reponse = client.PostAsync(url, requestContent).GetAwaiter().GetResult();
                 var reponseMessage = reponse.Content.ReadAsStringAsync().GetAwaiter().GetResult();
                 var emailsByUserIdsResponse = JsonConvert.DeserializeObject<PredictDto>(reponseMessage);                
