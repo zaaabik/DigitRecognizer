@@ -1,4 +1,4 @@
-﻿namespace DigitRecognizer.Dto.Response {
+﻿namespace Core.Dto.Response {
     public class PredictDto {
         public int Number { get; set; }
         public double Probability { get; set; }

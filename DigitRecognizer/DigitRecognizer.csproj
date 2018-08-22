@@ -14,11 +14,16 @@
   <ItemGroup>
     <Folder Include="wwwroot" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Core\Core.csproj">
+      <Project>{0959A4E2-5399-4ED8-9FE4-73C3366FF063}</Project>
+      <Name>Core</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Target Name="PrepublishScript" BeforeTargets="PrepareForPublish">
     <Exec Command="npm install" />
     <Exec Command="npm run production" />
-    <ItemGroup>
-      <!-- Inspired by https://github.com/aspnet/JavaScriptServices/blob/0200489bfcbf66c35c17c549498fb122ec9edd56/templates/AureliaSpa/Aurelia.csproj#L72 -->
+    <ItemGroup>      
       <_WebpackFiles Include="wwwroot\dist\**" />
       <ContentWithTargetPath Include="@(_WebpackFiles->'%(FullPath)')" RelativePath="%(_WebpackFiles.Identity)" TargetPath="%(_WebpackFiles.Identity)" CopyToPublishDirectory="Always" />
     </ItemGroup>

@@ -1,16 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using DigitRecognizer.Services.Interface;
+using Core.Clients;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DigitRecognizer.Controllers {
     public class ImageController : Controller {
-        private readonly INeuralService _neuralService;
-        public ImageController(INeuralService neuralService) {
-            _neuralService = neuralService;
+        private readonly NeuralClient _neuralClient;
+
+        public ImageController(NeuralClient neuralService) {
+            _neuralClient = neuralService;
         }
 
         [HttpPut("image")]
@@ -21,15 +21,11 @@ namespace DigitRecognizer.Controllers {
                 return BadRequest();
             }
 
-            using (var stream = new FileStream("test.png", FileMode.Create)) {
-                image.CopyToAsync(stream);
-            }
-
-            var predict = _neuralService.Predict(image);
+            var predict = _neuralClient.Predict(image);
 
             return Json(new {
                 Number = predict.Number,
-                Probability = predict.Probability 
+                Probability = predict.Probability
             });
         }
     }
