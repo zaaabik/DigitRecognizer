@@ -1,6 +1,5 @@
 <template>
     <div class="d-flex flex-column align-items-center mt-3"
-         v-loading="true"
     >
         <div class="painterro"
              id="painterro"
@@ -10,7 +9,6 @@
                   type="button"
                   class="mt-5 btn btn-primary"
                   @click="saveImage"
-                  data-loading-text="<i class='fa fa-spinner fa-spin '></i> Processing Order"
         >
             Predict
         </b-button>
@@ -51,9 +49,11 @@
                 let _this = this;
                 this.Painterro = Painterro({
                     id: 'painterro',
-                    activeColor: '#00ff00',
+                    activeColor: '#000000',
                     defaultTool: 'brush',
-                    hiddenTools: ['crop', 'line', 'rect', 'ellipse', 'text', 'rotate', 'resize', 'save', 'open', 'close', 'settings'],
+                    availableLineWidths: [10],
+                    defaultLineWidth: 10,
+                    hiddenTools: ['crop', 'toolbar', 'weight', 'line', 'rect', 'ellipse', 'text', 'rotate', 'resize', 'save', 'open', 'close', 'settings'],
                     saveHandler: function (image, done) {
                         _this.loadingPrediction = true;
                         const file = new Blob([image.asBlob()], {type: 'image/png'});

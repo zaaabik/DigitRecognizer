@@ -13,7 +13,7 @@ namespace DigitRecognizer {
                 .UseStartup<Startup>()
                 .UseKestrel()
                 .UseIISIntegration()
-                .UseUrls("http://0.0.0.0:5000")
+                .UseUrls("http://0.0.0.0:1337")
                 .UseContentRoot(Directory.GetCurrentDirectory())
                 .Build();
     }
