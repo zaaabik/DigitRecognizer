@@ -27,7 +27,7 @@
 
 <script>
     import Painterro from 'painterro';
-    import axios from 'axios';
+    import {Image} from '@/Scripts/Common/api.js'
 
     export default {
         name: "MPAINTERRO",
@@ -53,17 +53,11 @@
                     defaultTool: 'brush',
                     availableLineWidths: [10],
                     defaultLineWidth: 10,
+                    fixMobilePageReloader: true,
                     hiddenTools: ['crop', 'toolbar', 'weight', 'line', 'rect', 'ellipse', 'text', 'rotate', 'resize', 'save', 'open', 'close', 'settings'],
                     saveHandler: function (image, done) {
                         _this.loadingPrediction = true;
-                        const file = new Blob([image.asBlob()], {type: 'image/png'});
-                        let form = new FormData();
-                        form.append('img', file, file.filename);
-                        axios.put('image', form, {
-                            headers: {
-                                'Content-Type': `multipart/form-data; boundary=${image._boundary}`,
-                            },
-                        }).then((response) => {
+                        Image().predict(image).then((response) => {
                             let data = response.data;
                             _this.predictedNumber = data.number;
                             _this.predictedPercent = data.probability;
