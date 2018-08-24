@@ -5,15 +5,27 @@
              id="painterro"
              :class="isMobile"
         ></div>
-        <b-button v-if="!loadingPrediction"
-                  color="primary"
-                  :class="isMobile"
-                  type="button"
-                  class="mt-5 btn btn-primary predict-button"
-                  @click="saveImage"
+        <div v-if="!loadingPrediction"
+             class="d-flex flex-row align-items-center"
         >
-            Predict
-        </b-button>
+            <b-button color="primary"
+                      :class="isMobile"
+                      type="button"
+                      class="mt-5 mr-2 btn btn-primary predict-button btn-block"
+                      @click="saveImage"
+            >
+                Predict
+            </b-button>
+            <b-button color="primary"
+                      :class="isMobile"
+                      type="button"
+                      class="mt-5 btn btn-danger predict-button btn-block"
+                      @click="clear"
+            >
+                Clear
+            </b-button>
+                      
+        </div>
         <div v-else class="mt-5">
             Computing
         </div>
@@ -76,6 +88,9 @@
             },
             saveImage() {
                 this.Painterro.save();
+            },
+            clear() {
+                this.Painterro.show();
             }
         },
         computed: {
