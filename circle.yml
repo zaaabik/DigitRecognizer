@@ -25,6 +25,7 @@ jobs:
             mv /tmp/docker/* /usr/bin
       - run: |
           docker build -t zaaabik/digit-recognize-web:latest .
+          docker login -u $DOCKER_USER -p $DOCKER_PASS
           docker push zaaabik/digit-recognize-web:latest
           if git describe --tags | grep "^[0-9]\+\.[0-9]\+\.[0-9]\+$"; then
               TAG=$(git describe --tags)
